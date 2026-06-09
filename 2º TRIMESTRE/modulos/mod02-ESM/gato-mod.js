@@ -4,7 +4,8 @@
 export function banhoGato(raça, tipoBanho)
 {
     return `O gato ${raça} tomou banho: ${tipoBanho}`
-}export function tosaGato(raça, tipoTosa)
+}
+export function tosaGato(raça, tipoTosa)
 {
     return `O gato ${raça} fey tosa: ${tipoTosa}`
 }
