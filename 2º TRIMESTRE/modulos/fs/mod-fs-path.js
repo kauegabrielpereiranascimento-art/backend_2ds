@@ -9,7 +9,8 @@ try{
     console.log(chalk.green('Arquivo carregado com sucesso!'))
     console.log(arquivo)
 } catch (erro) {
-    console.log(chalk.red("Deu ruim:"))
-   console.log("Deu ruim: \nj" + erro.message)
+    console.log(chalk.bgYellowBright.red('⚠️​Atenção, erro a frente'))
+    console.log(chalk.blue.bgRed.bold("🔴​ Deu ruim"))
+   console.log(erro.message)
 }
 
