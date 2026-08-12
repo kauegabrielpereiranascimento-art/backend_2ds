@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós | Os Crusaders</title>
+    <style>
+        /* Variáveis de Design - Alinhadas com a Página Inicial */
+        :root {
+            --bg-dark: #07050d;
+            --jotaro-purple: #5c1bb5;
+            --jotaro-gold: #ffcd00;
+            --dio-green: #1ae683;
+            --card-bg: rgba(15, 12, 28, 0.75);
+            --text-light: #ffffff;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-light);
+            background-color: var(--bg-dark);
+            /* Fundo com efeito de poeira cósmica/stardust e distorção */
+            background-image: 
+                linear-gradient(215deg, rgba(26, 230, 131, 0.1) 0%, rgba(7, 5, 13, 0.92) 60%, rgba(92, 27, 181, 0.2) 100%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='1' fill='%23ffcd00' opacity='0.15'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        /* Container Estilo Mangá/Anime */
+        .about-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 3px solid transparent;
+            border-image: linear-gradient(to left, var(--jotaro-purple), var(--dio-green)) 1;
+            padding: 3.5rem 2rem 2.5rem;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8),
+                        0 0 30px rgba(92, 27, 181, 0.1);
+            position: relative;
+            animation: slideUp 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        /* Efeito Clássico de Impacto Visual (Onomatopeia) */
+        .about-card::before {
+            content: 'ゴゴゴ';
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 1.3rem;
+            color: rgba(255, 205, 0, 0.3);
+            font-weight: 900;
+            font-style: italic;
+            letter-spacing: 3px;
+        }
+
+        /* Badge Superior de Conexão das Redes */
+        .network-badge {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #110d22, #251a4a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--jotaro-gold);
+            box-shadow: 0 0 20px rgba(255, 205, 0, 0.2);
+        }
+
+        .network-badge svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--jotaro-gold);
+        }
+
+        /* Títulos */
+        h2 {
+            font-size: 2.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            text-shadow: 2px 2px 0px var(--jotaro-purple);
+        }
+
+        .section-tag {
+            font-size: 0.8rem;
+            color: var(--dio-green);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        /* Descrição */
+        p {
+            font-size: 1.05rem;
+            color: #c3bedb;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Container de Redes Sociais Simbolizadas (Moderno) */
+        .social-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 3rem;
+        }
+
+        .social-item {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: #b3aec9;
+            text-decoration: none;
+        }
+
+        .social-item svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Efeitos Individuais com Referência aos Stands */
+        .social-item:hover {
+            transform: translateY(-5px);
+            color: #fff;
+        }
+        .social-item.star:hover {
+            border-color: var(--jotaro-gold);
+            background: rgba(92, 27, 181, 0.3);
+            box-shadow: 0 5px 15px rgba(92, 27, 181, 0.4);
+        }
+        .social-item.world:hover {
+            border-color: var(--dio-green);
+            background: rgba(26, 230, 131, 0.15);
+            box-shadow: 0 5px 15px rgba(26, 230, 131, 0.3);
+        }
+
+        /* Botão de Retorno com Rota Mantida */
+        .btn-return {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: transparent;
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            width: 100%;
+            border: 2px solid var(--jotaro-purple);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-return::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--jotaro-purple);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-return svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            transition: transform 0.3s ease;
+        }
+
+        /* Interações do Botão */
+        .btn-return:hover::before {
+            width: 100%;
+        }
+
+        .btn-return:hover {
+            box-shadow: 0 10px 20px rgba(92, 27, 181, 0.4);
+            border-color: transparent;
+        }
+
+        .btn-return:hover svg {
+            transform: translateX(-4px);
+        }
+
+        /* Animação de Entrada */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="about-card">
+        <!-- Ícone Superior: Conexão Global/Transmissão -->
+        <div class="network-badge">
+            <svg viewBox="0 0 24 24">
+                <path d="M12,11A3,3 0 0,0 9,14A3,3 0 0,0 12,17A3,3 0 0,0 15,14A3,3 0 0,0 12,11M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3.5,3.5 0 0,1 15.5,8.5A3.5,3.5 0 0,1 12,12A3.5,3.5 0 0,1 8.5,8.5A3.5,3.5 0 0,1 12,5Z"/>
+            </svg>
+        </div>
+
+        <h2>Nossa página é massa!</h2>
+        <div class="section-tag">Transmissão de Sinal</div>
+        
+        <p>
+            Rastreando os passos de DIO do Japão ao Cairo. <br>
+            Fique por dentro das nossas transmissões e redes de informação.
+        </p>
+
+        <!-- Grade de Redes Sociais Simbolizadas -->
+        <div class="social-grid">
+            <!-- Link Temático Star Platinum (Roxo/Ouro) -->
+            <a href="#github" class="social-item star" title="GitHub">
+                <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.41 6,9.54 6.63,8.85C6.53,8.6 6.18,7.58 6.73,6.21C6.73,6.21 7.56,5.95 9.45,7.23C10.24,7 11.08,6.91 11.92,6.91C12.76,6.91 13.6,7 14.39,7.23C16.27,5.95 17.1,6.21 17.1,6.21C17.65,7.58 17.3,8.6 17.2,8.85C17.83,9.54 18.21,10.41 18.21,11.5C18.21,15.32 15.88,16.16 13.65,16.41C14,16.71 14.31,17.32 14.31,18.25C14.31,19.58 14.3,20.65 14.3,20.97C14.3,21.25 14.46,21.57 14.96,21.47C18.92,20.15 21.8,16.41 21.8,12A10,10 0 0,0 12,2Z"/></svg>
+            </a>
+            <!-- Link Temático The World (Verde/Amarelo) -->
+            <a href="#discord" class="social-item world" title="Discord">

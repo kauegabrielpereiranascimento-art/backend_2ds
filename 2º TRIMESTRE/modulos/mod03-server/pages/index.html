@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stardust Crusaders | Homepage</title>
+    <style>
+        /* Variáveis de Design - Paleta Jotaro / Star Platinum */
+        :root {
+            --color-bg-dark: #0b0914;
+            --color-primary: #6c25be; /* Roxo Star Platinum */
+            --color-secondary: #ffcd00; /* Dourado da Corrente do Jotaro */
+            --color-text: #ffffff;
+            --color-card-bg: rgba(25, 20, 41, 0.65);
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* Reset e Configurações Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-text);
+            background-color: var(--color-bg-dark);
+            /* Imagem Base64 otimizada no background (Textura de poeira estelar e deserto do Egito em tom escuro) */
+            background-image: linear-gradient(135deg, rgba(11, 9, 20, 0.95), rgba(40, 20, 70, 0.85)), url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='100' height='100' viewBox='0 0 100 100'%3E%3Ctext y='90' font-size='90' opacity='0.03' fill='%23fff'%3E⭐️%3C/text%3E%3Cpath d='M10 30 L40 80 L70 40' stroke='rgba(255,205,0,0.05)' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        /* Container Principal com Efeito Glassmorphism */
+        .card {
+            background: var(--color-card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid rgba(108, 37, 190, 0.4);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            width: 90%;
+            max-width: 480px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 
+                        0 0 30px rgba(108, 37, 190, 0.2);
+            position: relative;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* Detalhe Decorativo de JoJo (Estrelas / Menacing) */
+        .card::before {
+            content: 'ゴゴゴ';
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--color-secondary);
+            font-style: italic;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px rgba(255, 205, 0, 0.6);
+        }
+
+        /* Cabeçalho Emblemático */
+        .title-group {
+            margin-bottom: 2rem;
+        }
+
+        .icon-container {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-primary), #3b1466);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--color-secondary);
+            box-shadow: 0 0 20px rgba(255, 205, 0, 0.4);
+        }
+
+        .icon-container svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--color-secondary);
+        }
+
+        h3 {
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-text);
+            text-shadow: 2px 2px 0px var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Texto de Boas-vindas */
+        p {
+            font-size: 1.1rem;
+            color: #d1cde3;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        /* Botão Moderno com Rota Mantida */
+        .btn-route {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(90deg, var(--color-primary), #8a37eb);
+            color: var(--color-text);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            width: 100%;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 20px rgba(108, 37, 190, 0.4);
+        }
+
+        .btn-route svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            transition: transform 0.3s ease;
+        }
+
+        /* Efeitos de Hover e Interação */
+        .btn-route:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(108, 37, 190, 0.6),
+                        0 0 15px var(--color-secondary);
+            background: linear-gradient(90deg, #7c32d2, var(--color-primary));
+        }
+
+        .btn-route:hover svg {
+            transform: translateX(4px);
+        }
+
+        .btn-route:active {
+            transform: translateY(-1px);
+        }
+
+        /* Animação de Entrada */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="card">
+        <div class="title-group">
+            <!-- Ícone Moderno SVG: Estrela dos Joestar (Stardust) -->
+            <div class="icon-container">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/>
+                </svg>
+            </div>
+            <h3>Página Inicial</h3>
+        </div>
+        
+        <p>Yare Yare Daze... Seja bem-vindo à base dos Crusaders. Você está em casa! Isso pode levar ate 50 dias</p>
+        
+        <!-- Rota original "/sobre" mantida estritamente -->
+        <a href="/sobre" class="btn-route">
+            <span>Jornada até o Egito</span>
+            <!-- Ícone SVG de Seta Moderna -->
+            <svg viewBox="0 0 24 24">
+                <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+            </svg>
+        </a>
+    </main>
+
+</body>
+</html>
