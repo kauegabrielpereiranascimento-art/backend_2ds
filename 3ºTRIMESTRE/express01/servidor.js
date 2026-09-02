@@ -1,13 +1,15 @@
 // importação moderna com ESM (import)
-import express from 'expres'
+import express from 'express'
 
-const app = express()
+const app = express() // Instanciar Express
 
 app.get('/', (req, res) => {
-    res.send('Home Ok!')
+    res.send(`
+        <h3>Página Inicial</h3>\n
+        <p>Loja especialista em roupas</p>`)
 })
 app.get('/roupa', (req, res) => {
-    res.send('Minha roupa de sair...!')
+    res.send('roupa de sair...!')
 })
 
-app.listen(3000, ()=> {console.log('Servidor esrá vivo!')})
+app.listen(3001, ()=> {console.log('Servidor está vivo!')})
